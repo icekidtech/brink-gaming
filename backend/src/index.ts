@@ -1,6 +1,6 @@
+import { AppDataSource } from "./config/db";
 import express from "express";
 import cors from "cors";
-import { AppDataSource } from "./config/db";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
