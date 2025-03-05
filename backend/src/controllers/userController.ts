@@ -4,7 +4,6 @@ import { User } from "../entities/User";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-
 // User registration
 export const register = async (req: Request, res: Response) => {
     const { username, email, walletAddress, password } = req.body;
@@ -15,7 +14,8 @@ export const register = async (req: Request, res: Response) => {
         // Check if user already exists
         const existingUser = await userRepository.findOne({ where: [{ username }, { email }] });
         if (existingUser) {
-            return res.status(400).json({ message: "Username or email already exists" });
+            res.status(400).json({ message: "Username or email already exists" });
+            return; // Exit the function
         }
 
         // Hash the password
@@ -37,7 +37,6 @@ export const register = async (req: Request, res: Response) => {
     }
 };
 
-
 // User login
 export const login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
@@ -48,13 +47,15 @@ export const login = async (req: Request, res: Response) => {
         // Find the user by username
         const user = await userRepository.findOne({ where: { username } });
         if (!user) {
-            return res.status(400).json({ message: "Invalid username or password" });
+            res.status(400).json({ message: "Invalid username or password" });
+            return; // Exit the function
         }
 
         // Compare passwords
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            return res.status(400).json({ message: "Invalid username or password" });
+            res.status(400).json({ message: "Invalid username or password" });
+            return; // Exit the function
         }
 
         // Generate a JWT
