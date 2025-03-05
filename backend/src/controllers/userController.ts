@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 
+// User registration
 export const register = async (req: Request, res: Response) => {
     const { username, email, walletAddress, password } = req.body;
 
@@ -37,7 +38,7 @@ export const register = async (req: Request, res: Response) => {
 };
 
 
-
+// User login
 export const login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
 
