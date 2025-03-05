@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, Unique } from "typeorm";
 
 @Entity()
+@Unique(["username", "email"]) // Ensure username and email are unique
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
@@ -15,5 +16,5 @@ export class User {
     walletAddress: string;
 
     @Column()
-    password: string;
+    password: string; // Store hashed passwords only
 }
