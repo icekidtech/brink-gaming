@@ -1,5 +1,4 @@
 @import "../../styles/_variable.scss";
-
 @font-face {
     font-family: 'NHL Ducks';
     src: url('/fonts/NHLDucks.woff2') format('woff2');
@@ -12,20 +11,25 @@
 .image {
     width: 100%;
     height: 100%; 
+    overflow: hidden;
     display: block; 
+    position: static;
+    box-shadow: 0px 0px 5px 2px rgba(161, 154, 154, 0.568);
+    border-radius: 10px;
 }
 
 .heroSection {
-    height: 110vh;
+    position: relative;
+    min-height: 120vh;
     transition: background-image 1s ease-in-out;
-    overflow: hidden;
+    overflow: visible;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
+    z-index: -1;
     align-items: center;
     justify-content: space-between;
-    position: relative;
     .thumbnailWrapper {
         max-width: 550px;
         width: 45%;
@@ -38,6 +42,8 @@
     
     .swiper-slide {
         display: flex;
+        border-radius: 10px;
+        position: relative;
         justify-content: center;
         align-items: center;
         opacity: 0.5; 
@@ -68,6 +74,7 @@
             border-radius: 50%;
             background-color: #ffffff78;
             padding: 10px;
+            position: relative;
             border: none;
             transition: background-image 0.3s ease;
         }

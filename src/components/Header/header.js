@@ -1,15 +1,16 @@
-'use client'
+'use client';
 import Image from "next/image";
 import styles from "./header.module.scss";
-function Header({ actions }) {
+
+function Header({ actions, onWalletConnect }) {
     return (
         <nav className={`${styles.header} navbar navbar-expand-lg fixed-top`}>
-            <div className={"container"}>
-                <a className={"navbar-brand"} href="#">
+            <div className="container">
+                <a className="navbar-brand" href="#">
                     <Image src="/logo.png" alt="logo" width={110} height={35} />
                 </a>
-                <button className={"navbar-toggler"} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className={"navbar-toggler-icon"}></span>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={`${styles.navBar} collapse navbar-collapse justify-content-end`} id="navbarNav">
                     <ul className={`${styles.linkSection} navbar-nav`}>
@@ -20,7 +21,7 @@ function Header({ actions }) {
                                         type="button"
                                         className="btn dropdown-toggle"
                                         data-bs-toggle="dropdown"
-                                        aria-expanded="false" text-color="white"
+                                        aria-expanded="false"
                                     >
                                         {action.title}
                                     </button>
@@ -41,7 +42,7 @@ function Header({ actions }) {
                     </ul>
                     <button className={`${styles.tokenBalance}`}>
                         <Image src="/homepage-Assets/token-branded_solana.png" alt="token-img" width={25} height={25} />
-                        <p>Bal:<span> 235 SOL</span></p>
+                        <p>Bal: <span></span></p>
                     </button>
                     <div className={styles.tools}>
                         <button className={styles.addCart}><Image src="/homepage-Assets/search.png" alt="hh" width={20} height={20} /></button>
@@ -52,9 +53,12 @@ function Header({ actions }) {
                             Connect Wallet
                         </button>
                         <div className="dropdown-menu">
-                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/spearwallet.png" alt="" width={25} height={26}/><span>Connect Spearwallet</span></a>
-                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/Frame 441878712.png" alt="" width={25} height={26}/><span>Connect other wallets</span></a>
-                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/log-out.png" alt="" width={25} height={26}/><span>Logout</span></a>
+                            <button className="dropdown-item" onClick={onWalletConnect}>
+                                <Image src="/homepage-Assets/spearwallet.png" alt="" width={25} height={26} />
+                                <span>Connect Suiwallet</span>
+                            </button>
+                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/Frame 441878712.png" alt="" width={25} height={26} /><span>Connect other wallets</span></a>
+                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/log-out.png" alt="" width={25} height={26} /><span>Logout</span></a>
                         </div>
                     </div>
                 </div>

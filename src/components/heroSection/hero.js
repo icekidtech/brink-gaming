@@ -14,45 +14,45 @@ function GameCarousel() {
     const gamesData = [
         {
             "id": "1",
-            "backgroundImage": "/homepage-Assets/thumbnail-img/caod-back.png",
-            "cardimage": "/homepage-Assets/thumbnail-img/Cod-card.png",
-            "topname": "CALL OF DUTY:",
-            "bottomname": "BLACK OPS 6"
+            "backgroundImage": "/homepage-Assets/thumbnail-img/bushi-background.png",
+            "cardimage": "/homepage-Assets/thumbnail-img/bushi the-serpent-card.png",
+            "topname": "BUSHI:",
+            "bottomname": "THE SERPENT RAGE"
         },
         {
             "id": "2",
-            "backgroundImage": "/homepage-Assets/thumbnail-img/the-witcher-3-wild-hunt-card.png",
-            "cardimage": "/homepage-Assets/thumbnail-img/the-witcher-3-wild-hunt-card.png",
-            "topname": "THE WITCHER:",
-            "bottomname": "WILD HUNT 3"
+            "backgroundImage": "/homepage-Assets/thumbnail-img/panzar-dogs-background.png",
+            "cardimage": "/homepage-Assets/thumbnail-img/panzar-dogs-card.jpg",
+            "topname": "PANZAR DOGS",
+            "bottomname": "  "
         },
         {
             "id": "3",
-            "backgroundImage": "/homepage-Assets/thumbnail-img/mini-royale-nations-season-3-card.png",
-            "cardimage": "/homepage-Assets/thumbnail-img/mini-royale-nations-season-3-card.png",
-            "topname": "MINI ROYAL:",
-            "bottomname": "SEASON 3 HYPERDRIVE"
+            "backgroundImage": "/homepage-Assets/thumbnail-img/playground-background.jpg",
+            "cardimage": "/homepage-Assets/thumbnail-img/playground-card.png",
+            "topname": "PLAYGROUNDS:",
+            "bottomname": "WORLDS BEYOND"
         },
         {
             "id": "4",
-            "backgroundImage": "/homepage-Assets/thumbnail-img/caod-back.png",
-            "cardimage": "/homepage-Assets/thumbnail-img/Cod-card.png",
-            "topname": "CALL OF DUTY:",
-            "bottomname": "BLACK OPS 6"
+            "backgroundImage": "/homepage-Assets/thumbnail-img/run-legends-background.png",
+            "cardimage": "/homepage-Assets/thumbnail-img/run-legends-card.jpeg",
+            "topname": "RUN LEGENDS:",
+            "bottomname": "MAKE FITNESS FUN!"
         },
         {
-            "id": "4",
-            "backgroundImage": "/homepage-Assets/thumbnail-img/caod-back.png",
-            "cardimage": "/homepage-Assets/thumbnail-img/Cod-card.png",
-            "topname": "CALL OF DUTY:",
-            "bottomname": "BLACK OPS 6"
+            "id": "5",
+            "backgroundImage": "/homepage-Assets/thumbnail-img/symphony-background.jpeg",
+            "cardimage": "/homepage-Assets/thumbnail-img/symphony-card.jpeg",
+            "topname": "STAR SYMPHONY",
+            "bottomname": "  "
         },
         {
-            "id": "4",
-            "backgroundImage": "/homepage-Assets/thumbnail-img/caod-back.png",
-            "cardimage": "/homepage-Assets/thumbnail-img/Cod-card.png",
-            "topname": "CALL OF DUTY:",
-            "bottomname": "BLACK OPS 6"
+            "id": "6",
+            "backgroundImage": "/homepage-Assets/thumbnail-img/xociety-background.webp",
+            "cardimage": "/homepage-Assets/thumbnail-img/xociety-card.webp",
+            "topname": "XOCIETY",
+            "bottomname": "  "
         }
     ];
 
@@ -72,10 +72,10 @@ function GameCarousel() {
             <div className={styles.thumbnailWrapper}>
                 <div className={styles.navigation}>
                     <button id="prevButton">
-                        <img src="/homepage-Assets/arrow_left_alt.png" alt="" className={styles.image} />
+                        <Image src="/homepage-Assets/arrow_left_alt.png" alt="" fill />
                     </button>
                     <button id="nextButton">
-                        <img src="/homepage-Assets/arrow_forward (1).png" alt="" className={styles.image} />
+                        <Image src="/homepage-Assets/arrow_forward (1).png" alt="" fill />
                     </button>
                 </div>
                 <Swiper
@@ -84,7 +84,7 @@ function GameCarousel() {
                     slidesPerView={3}
                     spaceBetween={30}
                     navigation={{
-                        nextEl: "#nextButton", 
+                        nextEl: "#nextButton",
                         prevEl: "#prevButton",
                     }}
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -93,7 +93,7 @@ function GameCarousel() {
                         setTimeout(() => {
                             swiper.navigation.init();
                             swiper.navigation.update();
-                        },100);
+                        }, 100);
                     }}
                     onSlideChange={(swiper) => {
                         setBgImage(gamesData[swiper.realIndex]?.backgroundImage);

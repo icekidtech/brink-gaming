@@ -13,5 +13,9 @@
   box-sizing: border-box;
   overflow-x: hidden; // Prevents horizontal scrolling
 }
+body {
+  overflow: visible !important;
+  position: relative;
+}
 
 
