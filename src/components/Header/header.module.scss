@@ -1,0 +1,140 @@
+// @import "../../styles/variable"; // Import variables
+
+@import "../../styles/_variable.scss";
+
+.header {
+  background-color: transparent;
+  padding: 10px 0px;
+
+  .linkSection {
+    li {
+      ul {
+        background-color: #46459A;
+        width: 250px;
+
+        li {
+          padding: 10px 0 !important;
+
+          a {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+          }
+        }
+      }
+
+      ul li a:hover {
+        background-color: transparent !important;
+      }
+
+      padding: 10px;
+      color: $white !important;
+
+      a {
+        color: $white !important;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+
+      button {
+        color: $white;
+        border: none !important;
+        text-transform: capitalize;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .tokenBalance {
+    padding: 5px 13px;
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    background-color: $warning;
+    gap: 10px;
+    align-items: center;
+    margin-right: 40px;
+    margin-left: 40px;
+
+    p {
+      padding: 0;
+      color: #A8A8A8;
+      margin: 0;
+      font-size: 13px;
+      font-weight: 500;
+
+      span {
+        color: $white;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .tools {
+    display: flex;
+    gap: 20px;
+
+    button {
+      background-color: transparent;
+      aspect-ratio: 1/1;
+      border: none;
+    }
+  }
+
+  .userDropdown {
+    button {
+      background: linear-gradient(90deg, $lighter-brown, $orange);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      border: 1px solid $lighter-brown;
+      display: block;
+      margin-left: 40px;
+      background-color: $black;
+      border-radius: 15px;
+    }
+
+    div {
+      background-color: #46459A;
+      padding: 10px !important;
+      margin-top: 15px;
+      width: 220px;
+
+      button {
+        background-color: transparent;
+        background-image: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+        -webkit-text-fill-color: initial;
+        border: none;
+        margin-left: 0;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 0px 5px;
+        color: $white;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+
+      a {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 0px 5px;
+        color: $white;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+
+      a:hover {
+        background-color: transparent !important;
+      }
+    }
+  }
+}
