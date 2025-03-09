@@ -1,4 +1,4 @@
-@import "./_variable.scss";
+@use "./_variable.scss";
 
 // @import url('https://fonts.cdnfonts.com/css/nhl-ducks');  
 // @import "reboot";
@@ -12,10 +12,6 @@
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden; // Prevents horizontal scrolling
-}
-body {
-  overflow: visible !important;
-  position: relative;
 }
 
 

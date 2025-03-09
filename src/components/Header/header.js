@@ -1,8 +1,35 @@
 'use client';
+import { useEffect, useState } from "react";
+import { useCurrentWallet, useSuiClient } from "@mysten/dapp-kit";
 import Image from "next/image";
 import styles from "./header.module.scss";
 
-function Header({ actions, onWalletConnect }) {
+function Header({ actions , onWalletConnect}) {
+    const wallet = useCurrentWallet(); // Get connected wallet
+    const suiClient = useSuiClient(); // Get Sui client
+    const [balance, setBalance] = useState("0");
+
+    useEffect(() => {
+        async function fetchBalance() {
+            if (wallet?.account?.address) {
+                try {
+                    const coins = await suiClient.getAllBalances({
+                        owner: wallet.account.address,
+                    });
+
+                    // Find SUI token balance
+                    const suiBalance = coins.find(coin => coin.coinType.includes("SUI"))?.totalBalance || "0";
+                    
+                    setBalance((suiBalance / 1e9).toFixed(3)); // Convert balance from MIST to SUI
+                } catch (error) {
+                    console.error("Failed to fetch balance:", error);
+                }
+            }
+        }
+
+        fetchBalance();
+    }, [wallet, suiClient]); // Refetch when wallet changes
+
     return (
         <nav className={`${styles.header} navbar navbar-expand-lg fixed-top`}>
             <div className="container">
@@ -17,12 +44,7 @@ function Header({ actions, onWalletConnect }) {
                         {actions.map(action =>
                             action.title === "menu" ? (
                                 <li className={`${styles.dropdown} nav-item dropdown dropdown-menu-end`} key={action.title}>
-                                    <button
-                                        type="button"
-                                        className="btn dropdown-toggle"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
+                                    <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         {action.title}
                                     </button>
                                     <ul className="dropdown-menu">
@@ -40,14 +62,18 @@ function Header({ actions, onWalletConnect }) {
                             )
                         )}
                     </ul>
+
+                    {/* Wallet Balance Button */}
                     <button className={`${styles.tokenBalance}`}>
                         <Image src="/homepage-Assets/token-branded_solana.png" alt="token-img" width={25} height={25} />
-                        <p>Bal: <span></span></p>
+                        <p>Bal: <span>{balance} SUI</span></p>
                     </button>
+
                     <div className={styles.tools}>
                         <button className={styles.addCart}><Image src="/homepage-Assets/search.png" alt="hh" width={20} height={20} /></button>
                         <button className={styles.search}><Image src="/homepage-Assets/shopping-cart.png" alt="hh" width={20} height={20} /></button>
                     </div>
+
                     <div className={`${styles.userDropdown} dropdown dropdown-menu-end`}>
                         <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown">
                             Connect Wallet
@@ -57,8 +83,8 @@ function Header({ actions, onWalletConnect }) {
                                 <Image src="/homepage-Assets/spearwallet.png" alt="" width={25} height={26} />
                                 <span>Connect Suiwallet</span>
                             </button>
-                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/Frame 441878712.png" alt="" width={25} height={26} /><span>Connect other wallets</span></a>
-                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/log-out.png" alt="" width={25} height={26} /><span>Logout</span></a>
+                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/Frame 441878712.png" alt="" width={25} height={26}/><span>Connect other wallets</span></a>
+                            <a className="dropdown-item" href="#"><Image src="/homepage-Assets/log-out.png" alt="" width={25} height={26}/><span>Logout</span></a>
                         </div>
                     </div>
                 </div>

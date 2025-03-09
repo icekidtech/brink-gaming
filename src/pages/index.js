@@ -23,10 +23,7 @@ export default function Home() {
     <div className={styles.mainContainer}>
       <Header actions={headerActions} onWalletConnect={toggleWalletPopup} />
       <GameCarousel />
-      
-      <div  className={styles.walletwrapper} style={{ display: isWalletPopupOpen ? "block" : "none" }}>
-        <WalletConnect onClose={toggleWalletPopup} />
-      </div>
+      {isWalletPopupOpen && <WalletConnect onClose={toggleWalletPopup} />}
     </div>
   );
 }

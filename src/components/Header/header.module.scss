@@ -1,6 +1,6 @@
 // @import "../../styles/variable"; // Import variables
 
-@import "../../styles/_variable.scss";
+@use "../../styles/_variable.scss";
 
 .header {
   background-color: transparent;
@@ -28,17 +28,17 @@
       }
 
       padding: 10px;
-      color: $white !important;
+      color: white !important;
 
       a {
-        color: $white !important;
+        color: white !important;
         font-size: 14px;
         font-weight: 400;
         text-transform: capitalize;
       }
 
       button {
-        color: $white;
+        color: white;
         border: none !important;
         text-transform: capitalize;
         font-size: 14px;
@@ -52,7 +52,7 @@
     display: flex;
     border: none;
     border-radius: 5px;
-    background-color: $warning;
+    background-color: #23143A;
     gap: 10px;
     align-items: center;
     margin-right: 40px;
@@ -66,7 +66,7 @@
       font-weight: 500;
 
       span {
-        color: $white;
+        color: white;
         font-size: 14px;
       }
     }
@@ -85,15 +85,15 @@
 
   .userDropdown {
     button {
-      background: linear-gradient(90deg, $lighter-brown, $orange);
+      background: linear-gradient(90deg, #C20013, #E14C00);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;
-      border: 1px solid $lighter-brown;
+      border: 1px solid #C20013;
       display: block;
       margin-left: 40px;
-      background-color: $black;
+      background-color: black;
       border-radius: 15px;
     }
 
@@ -115,7 +115,7 @@
         gap: 10px;
         align-items: center;
         padding: 0px 5px;
-        color: $white;
+        color: white;
         font-size: 14px;
         font-weight: 400;
         margin-bottom: 10px;
@@ -126,7 +126,7 @@
         gap: 10px;
         align-items: center;
         padding: 0px 5px;
-        color: $white;
+        color: white;
         font-size: 14px;
         font-weight: 400;
         margin-bottom: 10px;
